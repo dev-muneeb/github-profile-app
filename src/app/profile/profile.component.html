@@ -1,0 +1,13 @@
+
+<div *ngIf="profile" class="card profile" style="width: 18rem;">
+    <img [src]="profile.avatar_url" [alt]="profile.login" class="profile-image card-img-top">
+    <div class="card-body">
+      <h5 class="card-title text-black">{{profile.name | uppercase}}</h5>
+      <p class="card-text mb-0 text-muted">{{profile.login}}</p>
+      <p *ngIf="profile.email"  class="card-text mb-0 text-muted">{{profile.email}}</p>
+      <p *ngIf="profile.company" class="card-text mb-0 text-muted">{{profile.company}}</p>
+      <p *ngIf="profile.location" class="card-text mb-0 text-muted">{{profile.location}}</p>
+      <p *ngIf="profile.followers === 0"  class="card-text mb-0 text-muted">followers: {{profile.followers}}</p>
+      <p *ngIf="profile.bio" >>{{profile.bio}}</p>
+    </div>
+</div>

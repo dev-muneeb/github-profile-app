@@ -1,10 +1,15 @@
 <div class="container">
-  <h1>GitHub Profile</h1>
+  <h1 class="display-4 heading">GitHub Profile</h1>
+  <input id="darkTheme" type="checkbox" [formControl]="darkTheme">
+  <label for="darkTheme">Dark Theme</label>
   <div class="row">
     <div class="col">
       <app-user-search></app-user-search>
     </div>
+  </div>
+  <div class="row">
     <div class="col">
+      <app-profile></app-profile>
     </div>
   </div>
 </div>
