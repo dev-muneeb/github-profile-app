@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Profile } from '../app/profile';
-import { Subject } from 'rxjs';
+import { Repo } from '../app/repo';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +33,10 @@ export class GithubService {
   getProfile(username): Observable<Profile> {
     const url = `https://api.github.com/users/${username}`;
     return this.http.get<Profile>(url);
+  }
+
+  getRepos(username): Observable<Repo[]> {
+    const url = `https://api.github.com/users/${username}/repos`;
+    return this.http.get<Repo[]>(url);
   }
 }

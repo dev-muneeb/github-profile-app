@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import {
+  faEnvelope,
+  faBuilding,
+  faMapMarkerAlt,
+  faUsers
+} from '@fortawesome/free-solid-svg-icons';
 import { Profile } from '../profile';
 import { GithubService } from '../github.service';
 
@@ -9,7 +15,10 @@ import { GithubService } from '../github.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  faEnvelope = faEnvelope;
+  faBuilding = faBuilding;
+  faMapMarkerAlt = faMapMarkerAlt;
+  faUsers = faUsers;
   profile: Profile;
   searchSubscription: Subscription;
   getProfileSubscription: Subscription;

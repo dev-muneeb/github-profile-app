@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-12 col-md-6" *ngFor="let repo of repos">
+    <div class="card repo" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title text-black">{{repo.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{repo.language}}</h6>
+        <p class="card-text text-black">{{repo.description}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted float-left"><fa-icon [icon]="faStar"></fa-icon> {{repo.stargazers_count}}</small>
+        <small class="text-muted float-right"><fa-icon [icon]="faEye"></fa-icon> {{repo.watchers_count}}</small>
+      </div>
+    </div>
+  </div>
+</div>
