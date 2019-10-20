@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Profile } from '../app/profile';
 import { Repo } from '../app/repo';
 
@@ -32,11 +33,13 @@ export class GithubService {
   /** GET profile by username. **/
   getProfile(username): Observable<Profile> {
     const url = `https://api.github.com/users/${username}`;
-    return this.http.get<Profile>(url);
+    return this.http.get<Profile>(url)
+            .pipe(catchError((err: any) => throwError(err)));
   }
 
   getRepos(username): Observable<Repo[]> {
     const url = `https://api.github.com/users/${username}/repos`;
-    return this.http.get<Repo[]>(url);
+    return this.http.get<Repo[]>(url)
+            .pipe(catchError((err: any) => throwError(err)));
   }
 }
